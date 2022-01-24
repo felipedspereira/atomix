@@ -1,0 +1,9 @@
+server:
+  port: 9001
+
+atomix-cluster:
+  member-name: banana
+  nodes:
+    banana: localhost:9101
+    orange: localhost:9102
+    strawberry: localhost:9103
