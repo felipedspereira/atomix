@@ -1,4 +1,4 @@
-package com.felipe.atomix.strawberry.resource;
+package com.felipe.atomix.orange.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import io.atomix.core.map.AtomicMap;
 import io.atomix.utils.time.Versioned;
 
 @RestController
-@RequestMapping("strawberry")
-public class TestResource {
+@RequestMapping("orange")
+public class OrangeResource {
 
   @Autowired private AtomicMap<String, String> distributedMap;
 
