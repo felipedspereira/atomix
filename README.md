@@ -1,5 +1,5 @@
 # atomix
-Distributed Map using atomix.
+Distributed Map using [Atomix](https://atomix.io/).
 
 # about the apps structure
 4 components-in-one
