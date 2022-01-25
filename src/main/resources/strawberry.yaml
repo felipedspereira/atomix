@@ -2,8 +2,8 @@ server:
   port: 9003
 
 atomix-cluster:
+  cluster-id: my-cluster
   member-name: strawberry
   nodes:
-    banana: localhost:9101
     orange: localhost:9102
     strawberry: localhost:9103

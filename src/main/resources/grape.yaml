@@ -1,9 +1,9 @@
 server:
-  port: 9001
+  port: 9004
 
 atomix-cluster:
   cluster-id: my-cluster
-  member-name: banana
+  member-name: grape
   nodes:
     banana: localhost:9101
     grape: localhost:9104

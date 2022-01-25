@@ -8,9 +8,13 @@ import lombok.Setter;
 
 @Component
 @ConfigurationProperties(prefix = "atomix-cluster")
+@Getter
+@Setter
 public class AtomixProperties {
 
-  @Getter @Setter private Map<String, String> nodes;
+  private Map<String, String> nodes;
 
-  @Getter @Setter private String memberName;
+  private String memberName;
+
+  private String clusterId;
 }

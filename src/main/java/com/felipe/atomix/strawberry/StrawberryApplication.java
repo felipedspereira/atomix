@@ -3,9 +3,13 @@ package com.felipe.atomix.strawberry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.felipe.atomix.strawberry", "com.felipe.atomix.common"})
+@ComponentScan(
+    basePackages = {"com.felipe.atomix.strawberry", "com.felipe.atomix.common.configuration"},
+    excludeFilters =
+        @ComponentScan.Filter(type = FilterType.ASPECTJ, pattern = "com.felipe.atomix.common.configuration.management.*"))
 public class StrawberryApplication {
 
   public static void main(String[] args) {
