@@ -4,6 +4,7 @@ server:
 atomix-cluster:
   cluster-id: my-cluster
   member-name: grape
+  management-group-name: system
   nodes:
     banana: localhost:9101
     grape: localhost:9104

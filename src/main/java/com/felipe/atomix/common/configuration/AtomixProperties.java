@@ -17,4 +17,8 @@ public class AtomixProperties {
   private String memberName;
 
   private String clusterId;
+  
+  private String managementGroupName;
+  
+  private String partitionGroupName;
 }

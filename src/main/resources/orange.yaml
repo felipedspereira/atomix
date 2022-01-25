@@ -4,6 +4,7 @@ server:
 atomix-cluster:
   cluster-id: my-cluster
   member-name: orange
+  partition-group-name: data
   nodes:
     orange: localhost:9102
     strawberry: localhost:9103

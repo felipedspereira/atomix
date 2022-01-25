@@ -18,16 +18,17 @@ public class ClientConfiguration {
   @Value("${server.port}")
   private int port;
 
-  public static final String MAP = "my-map";
-
+  private static final String MAP_NAME = "myMap"; 
+  
   @Bean
   public AtomicMap<String, String> atomicMap(Atomix atomix) {
     return atomix
-        .<String, String>atomicMapBuilder(MAP)
-        .withProtocol(MultiPrimaryProtocol.builder("data")
-            .withBackups(2)
-            .withReplication(Replication.ASYNCHRONOUS)
-            .build())
+        .<String, String>atomicMapBuilder(MAP_NAME)
+        .withProtocol(
+            MultiPrimaryProtocol.builder(atomixProperties.getPartitionGroupName())
+                .withBackups(2)
+                .withReplication(Replication.ASYNCHRONOUS)
+                .build())
         .build();
   }
 
@@ -41,7 +42,9 @@ public class ClientConfiguration {
             .withHost("localhost")
             .withPort(port + 100)
             .withPartitionGroups(
-                PrimaryBackupPartitionGroup.builder("data").withNumPartitions(71).build())
+                PrimaryBackupPartitionGroup.builder(atomixProperties.getPartitionGroupName())
+                    .withNumPartitions(71)
+                    .build())
             .build();
 
     atomix.start().join();

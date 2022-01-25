@@ -21,11 +21,11 @@ public class ManagementGroupConfiguration {
 
   @Bean
   public Atomix atomix() {
-    List<String> memberNames=
+    List<String> memberNames =
         atomixProperties.getNodes().entrySet().stream()
             .map(Entry::getKey)
             .collect(Collectors.toList());
-    
+
     Atomix atomix =
         Atomix.builder()
             .withClusterId(atomixProperties.getClusterId())
@@ -34,7 +34,7 @@ public class ManagementGroupConfiguration {
             .withHost("localhost")
             .withPort(port + 100)
             .withManagementGroup(
-                RaftPartitionGroup.builder("kakaka")
+                RaftPartitionGroup.builder(atomixProperties.getManagementGroupName())
                     .withNumPartitions(1)
                     .withMembers(memberNames)
                     .withDataDirectory(new File("data/" + atomixProperties.getMemberName()))
